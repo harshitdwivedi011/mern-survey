@@ -9,7 +9,7 @@ const SurveySubmissions = () => {
     if (localStorage.getItem("isAdmin") !== "true") {
       navigate("/admin-login");
     } else {
-      fetch("https://mern-survey-backend-85n0.onrender.com/submissions")
+      fetch("https://react-3-vjva.onrender.com/submissions")
         .then((res) => res.json())
         .then((data) => setSubmissions(data))
         .catch((err) => console.error(err));

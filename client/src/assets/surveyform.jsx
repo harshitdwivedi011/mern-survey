@@ -24,7 +24,7 @@ const SurveyForm = () => {
   const Submit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://mern-survey-backend-85n0.onrender.com/submissions", {
+      const response = await fetch("https://react-3-vjva.onrender.com/submissions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
