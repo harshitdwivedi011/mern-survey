@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SurveyForm = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ const SurveyForm = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   const Change = (e) => {
     const { name, value } = e.target;
@@ -24,13 +26,16 @@ const SurveyForm = () => {
   const Submit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://react-3-vjva.onrender.com/submissions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://react-3-vjva.onrender.com/submissions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         setSubmitted(true);
@@ -41,9 +46,17 @@ const SurveyForm = () => {
       console.error("Error submitting form:", error);
     }
   };
+  const handleSubmissions = () => {
+    navigate("/admin-login");
+  };
 
   return (
     <div className="container mt-5">
+      <div className="col-xl-12 text-end">
+        <button className="btn btn-primary mb-2" onClick={handleSubmissions}>
+          View All Submissions
+        </button>
+      </div>
       <div className="card shadow">
         <div className="card-body">
           <h2 className="text-center mb-4">Survey Form</h2>
