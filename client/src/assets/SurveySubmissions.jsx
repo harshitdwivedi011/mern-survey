@@ -9,7 +9,7 @@ const SurveySubmissions = () => {
     if (localStorage.getItem("isAdmin") !== "true") {
       navigate("/admin-login");
     } else {
-      fetch("https://react-3-vjva.onrender.com/submissions")
+      fetch("https://react-7-gnan.onrender.com/submissions")
         .then((res) => res.json())
         .then((data) => setSubmissions(data))
         .catch((err) => console.error(err));

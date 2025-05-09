@@ -26,8 +26,9 @@ const SurveyForm = () => {
   const Submit = async (e) => {
     e.preventDefault();
     try {
+      // "https://react-3-vjva.onrender.com/submissions",
       const response = await fetch(
-        "https://react-3-vjva.onrender.com/submissions",
+        "https://react-7-gnan.onrender.com/submissions",
         {
           method: "POST",
           headers: {
